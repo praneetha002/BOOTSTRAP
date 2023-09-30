@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task 4</title>
+    <style>
+        /* Style for the buttons */
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        /* Style for the output div */
+        #output {
+            background-color: lightblue;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JS Task 4</h1>
+    <button id="dateButton">Show Date</button>
+    <button id="timeButton">Show Time</button>
+    <div id="output"></div>
+
+    <script>
+        const dateButton = document.getElementById("dateButton");
+        const timeButton = document.getElementById("timeButton");
+        const outputDiv = document.getElementById("output");
+
+        dateButton.addEventListener("click", showDate);
+        timeButton.addEventListener("click", showTime);
+
+        function showDate() {
+            const currentDate = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = currentDate.toLocaleDateString(undefined, options);
+            outputDiv.innerText = "Today's Date: " + formattedDate;
+        }
+
+        function showTime() {
+            const currentTime = new Date();
+            const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            const formattedTime = currentTime.toLocaleTimeString(undefined, options);
+            outputDiv.innerText = "Current Time: " + formattedTime;
+        }
+    </script>
+</body>
+</html>
